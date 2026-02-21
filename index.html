@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Watchlist</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>Binance Watchlist</h1>
+        <p>记录你每日需要跟踪的加密货币，并快速跳转到 Binance 交易页面。</p>
+      </header>
+
+      <section class="card form-card" aria-labelledby="form-title">
+        <h2 id="form-title">添加币种</h2>
+        <form id="watchlist-form">
+          <label>
+            币种名称
+            <input type="text" id="name" placeholder="例如：Bitcoin" required maxlength="30" />
+          </label>
+          <label>
+            交易对
+            <input type="text" id="symbol" placeholder="例如：BTC/USDT" required maxlength="20" />
+          </label>
+          <label>
+            备注（可选）
+            <input type="text" id="notes" placeholder="例如：关注突破 70k" maxlength="80" />
+          </label>
+          <button type="submit">加入 Watchlist</button>
+        </form>
+      </section>
+
+      <section class="card list-card" aria-labelledby="list-title">
+        <div class="list-header">
+          <h2 id="list-title">我的 Watchlist</h2>
+          <button id="clear-all" class="danger" type="button">清空列表</button>
+        </div>
+        <ul id="watchlist" aria-live="polite"></ul>
+        <p id="empty-state">暂无币种，先添加一个吧。</p>
+      </section>
+    </main>
+
+    <template id="item-template">
+      <li class="item">
+        <div>
+          <p class="name"></p>
+          <p class="meta"></p>
+          <p class="notes"></p>
+        </div>
+        <div class="actions">
+          <a class="binance-link" target="_blank" rel="noopener noreferrer">打开 Binance</a>
+          <button class="remove" type="button">删除</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
